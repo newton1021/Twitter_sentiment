@@ -1,6 +1,9 @@
 Current Sentiment
 
-1. Identify tools and resources	 
+1. Identify tools and resources
+	+ Tweedy
+	+ NLTK
+	+ sklearn	 
 	
 2. Ask Twitter for current #’s???
 	+  have user select topic or enter topic?
@@ -8,10 +11,12 @@ Current Sentiment
 4. Analyze tweets
 	+ Determine Positive or negative
 	+ add to database?
+
 5. Present results 
 	+ Pie chart
 	+ trend by date?
 	+ volume by date
+
 6. Model
 	+  Chose model Categorical? Serial etc
 	+ use NRC Emotional Lexicon
