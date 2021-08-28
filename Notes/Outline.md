@@ -37,3 +37,9 @@ https://towardsdatascience.com/what-python-package-is-best-for-getting-data-from
 https://www.r-bloggers.com/2016/01/sentiment-analysis-with-machine-learning-in-r/
 
 https://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/
+
+
+YouTubeYouTube | Coding Ninjas
+Sentiment Analysis of 1.6 Million Tweets using  Machine Learning | In Just 20 Mins! 
+[Video Link](https://youtu.be/lMQzEk5vht4)
+
