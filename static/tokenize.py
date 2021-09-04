@@ -1,4 +1,4 @@
-#!/usr/bin/env /user/intelpython/latest/envs/py3env/bin/python
+
 
 import pandas as pd
 import numpy as np  
