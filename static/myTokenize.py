@@ -1,6 +1,9 @@
+#!/Users/theDoctor/opt/anaconda3/envs/PythonData
 
 
-import pandas as pd
+
+
+import pandas as pd	
 import numpy as np  
 import re 
 import string
