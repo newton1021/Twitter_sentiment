@@ -12,7 +12,7 @@ CREATE TABLE tweet_data (
 	"retweet_count" int,
     "tweet_text" varchar,
     "tweet_cleaned" varchar,
-    "favorite_count" int,
+    "search_key" varchar,
     "est_positivity" int,
 	primary key(id)
 );

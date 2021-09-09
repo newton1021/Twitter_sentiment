@@ -1,4 +1,4 @@
-#!/Users/theDoctor/opt/anaconda3/envs/PythonData
+#!/Users/theDoctor/opt/anaconda3/envs/ PythonData
 
 
 
@@ -46,18 +46,20 @@ def preprocess_tweet_text(tweet):
 	tweet = tweet.translate(str.maketrans("","",string.punctuation))
 	tweet = re.sub(r'\@\w+|\#',"",tweet)
 	
-#	tweet_tokens = word_tokenize(tweet)
-#	filtered_words = [word for word in tweet_tokens if word not in stop_words]
-#	
-#	ps = PorterStemmer()
-#	stemmed_words = [ps.stem(w) for w in filtered_words]
-#	
-##	lemmatizer = WordNetLemmatizer()
-##	lemma_words = [lemmatizer.lemmatize(w, pos='a') for w in stemmed_words]
-#	
-#	return " ".join(stemmed_words)
+	tweet_tokens = word_tokenize(tweet)
+	filtered_words = [word for word in tweet_tokens if word not in stop_words]
+	
+	ps = PorterStemmer()
+	stemmed_words = [ps.stem(w) for w in filtered_words]
+	
+#	lemmatizer = WordNetLemmatizer()
+#	lemma_words = [lemmatizer.lemmatize(w, pos='a') for w in stemmed_words]
+	
+	return " ".join(stemmed_words)
 
 
 
 
-preprocess_tweet_text("Hi there, how are you preparing for your exams?")   
+x = preprocess_tweet_text("Hi there, how are you preparing for your exams?")   
+
+print(x)
