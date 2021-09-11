@@ -25,7 +25,6 @@ import string
 import pandas as pd
 import numpy as np
 import re
-from PyDictionary import PyDictionary
 import enchant
 d = enchant.Dict("en_US")
 
