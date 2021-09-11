@@ -12,6 +12,7 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+	<link href="static/js/pieChart.js" rel="pieChart">
 
   </head>
   <body style="background-color:#15202B;">
@@ -33,24 +34,25 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4">
-			<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
+			<svg width="400" height="400"></svg>
 		</div>
 		<div class="col-md-8">
-			<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
+			
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
+			<img alt="sample wordcloud" src="{{url_for('static', filename='testcloud.png')}}">
 		</div>
 		<div class="col-md-6">
-			<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
+			
 		</div>
 	</div>
 </div>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="js/pieChart.js"></script>
   </body>
 </html>

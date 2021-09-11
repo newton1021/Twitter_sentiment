@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, url_for
 from static.database import DataBase as DB
 
 
@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-	print("hello")
 	return render_template("index.html")
 
 
@@ -24,3 +23,9 @@ def pieGraph():
 	db = DB()
 	(p,n) = db.getPieDatq()
 	return render_template("wordcloud.html",p, n)
+
+
+
+
+if __name__ == '__main__':
+	app.run(debug=True)
