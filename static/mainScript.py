@@ -70,3 +70,7 @@ def saveDataset_postgres(dataset):
 	for element in dataset:
 		textfile.write(element + "\n")
 	textfile.close()
+	
+	
+	
+	
