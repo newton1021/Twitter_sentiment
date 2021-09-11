@@ -25,8 +25,9 @@ import string
 import pandas as pd
 import numpy as np
 import re
-
-LR_model = LogisticRegression(solver='lbfgs')
+from PyDictionary import PyDictionary
+import enchant
+d = enchant.Dict("en_US")
 
 
 def preprocess_tweet_text(tweet):
@@ -37,10 +38,18 @@ def preprocess_tweet_text(tweet):
 	
 	tweet = tweet.translate(str.maketrans("","",string.punctuation))
 	
-	tweet = re.sub(r'\@\w+|\#',"",tweet)
+	tweet = re.sub(r'\@\w+|\#\'',"",tweet)
 	
 	tweet_tokens = word_tokenize(tweet)
-	filtered_words = [word for word in tweet_tokens if word not in stop_words]
+	filtered_words = []
+	filtered_words = []
+	for word in tweet_tokens:
+		if (d.check(word)) & (word not in stop_words):
+			filtered_words.append(word)
+		else:
+			continue
+	
+	
 	
 #     ps = PorterStemmer()
 #     stemmed_words = [ps.stem(w) for w in filtered_words]

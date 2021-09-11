@@ -35,30 +35,6 @@ class DataBase():
 		engine = create_engine(db_string)
 		Base.metadata.create_all(engine)
 		self.engine = engine
-
-	def saveToDB(self, results, search_key):
-		#save results to db
-		
-		print("1...")
-		session = Session(self.engine)
-		for tweet in results:
-			parts = tweet.split(',')
-			if len(parts) > 2:
-				newTweet = TweetData( name=parts[0], date = parts[1], retweet_count = 0, tweet_text = "".join(parts[3:]), search_key=search_key)
-				session.add(newTweet)
-		
-		print("2...")
-		
-		session.commit()
-		#session.flush()
-		time.sleep(1)
-		print("3...")
-		
-		time.sleep(1)
-		session.close()
-		
-		
-		print("4...")
 		
 
 	def getCurrentData(self):
@@ -82,6 +58,7 @@ class DataBase():
 				newTweet = TweetData( name=parts[0], date = parts[1], retweet_count = 0, tweet_text = "".join(parts[3:]), search_key=search_key)
 				session.add(newTweet)
 		session.commit()
+		session.close()
 		
 		
 	
@@ -92,9 +69,41 @@ class DataBase():
 			item.tweet_cleaned = row.tweet_cleaned
 			item.est_positivity = row.est_positivity
 		session.commit()
+		session.close()
 			
 			
+	def getWordList(self):
+		df = self.getCurrentData()
+		pWords = []
+		nWords = []
+		pWords_set = set()
+		nWords_set = set()
+		dfp = df[df.est_positivity == 1]
+		for ind, row in dfp.iterrows():
+			wordlist = row.tweet_cleaned.split(" ")
+			pWords += wordlist
+			pWords_set.union(wordlist)
+						
+		dfn = df[df.est_positivity == -1]
+		for ind, row in dfn.iterrows():
+			wordlist = row.tweet_cleaned.split(" ")
 			
+			nWords += wordlist
+			nWords_set.union(wordlist)
+		
+		return (pWords_set, pWords, nWords_set, nWords)
+	
+	def getPieData(self):
+		df = self.getCurrentData()
+		dfp = df[df.est_positivity == 1]
+		dfn = df[df.est_positivity == -1]
+		presults = dfp.groupby("search_key").count()
+		p = presults[presults["search_key", "tweet_text"]]
+		
+		nresults = dfn.groupby("search_key").count()
+		n = nresults[nresults["search_key", "tweet_text"]]
+		return (p,n)
+		
 if __name__ == "__main__":
 	db = DataBase()
 	df = db.getCurrentData()
